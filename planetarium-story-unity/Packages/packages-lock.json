@@ -1,5 +1,19 @@
 {
   "dependencies": {
+    "com.demigiant.dotween": {
+      "version": "https://github.com/yoshida190/dotween.git#v1.2.420-upm",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "24cc3c384ab9f3ee4e58fef46398eeb5fbe9d7e7"
+    },
+    "com.neuecc.unirx": {
+      "version": "https://github.com/starikcetin/unirx.git#f93af89f2aafeccfc7aff9dee2cecc6d60ede06b",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "f93af89f2aafeccfc7aff9dee2cecc6d60ede06b"
+    },
     "com.unity.2d.animation": {
       "version": "7.0.6",
       "depth": 1,
@@ -94,15 +108,6 @@
       },
       "url": "https://packages.unity.com"
     },
-    "com.unity.collab-proxy": {
-      "version": "1.15.18",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.services.core": "1.0.1"
-      },
-      "url": "https://packages.unity.com"
-    },
     "com.unity.ext.nunit": {
       "version": "1.0.6",
       "depth": 1,
@@ -154,24 +159,6 @@
       "depth": 2,
       "source": "registry",
       "dependencies": {},
-      "url": "https://packages.unity.com"
-    },
-    "com.unity.nuget.newtonsoft-json": {
-      "version": "3.0.2",
-      "depth": 2,
-      "source": "registry",
-      "dependencies": {},
-      "url": "https://packages.unity.com"
-    },
-    "com.unity.services.core": {
-      "version": "1.4.0",
-      "depth": 1,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.modules.unitywebrequest": "1.0.0",
-        "com.unity.nuget.newtonsoft-json": "3.0.2",
-        "com.unity.modules.androidjni": "1.0.0"
-      },
       "url": "https://packages.unity.com"
     },
     "com.unity.test-framework": {
