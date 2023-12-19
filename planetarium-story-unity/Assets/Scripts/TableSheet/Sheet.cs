@@ -9,7 +9,6 @@ namespace TableSheet
     {
         private const string SplitRe = @",(?=(?:[^""]*""[^""]*"")*(?![^""]*""))";
         private const string LineSplitRe = @"\r\n|\n\r|\n|\r";
-        private static readonly char[] TrimChars = { '\"' };
 
         public static List<TValue> Read(string csvData)
         {
@@ -45,5 +44,20 @@ namespace TableSheet
         public abstract T Key { get; }
 
         public abstract void Set(string[] fields);
+        
+        protected static int ParseInt(string value)
+        {
+            return int.Parse(value);
+        }
+        
+        protected static float ParseFloat(string value)
+        {
+            return float.Parse(value);
+        }
+        
+        protected static TEnum ParseEnum<TEnum>(string value)
+        {
+            return (TEnum)System.Enum.Parse(typeof(TEnum), value);
+        }
     }
 }
