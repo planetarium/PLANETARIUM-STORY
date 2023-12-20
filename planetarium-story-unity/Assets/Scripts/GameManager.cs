@@ -16,14 +16,15 @@ namespace PlanetariumStory
 
         private void Start()
         {
-            StartCoroutine(Init());
+            Init();
+            StartCoroutine(CoUpdate());
+            
+
         }
 
-        private IEnumerator Init()
+        private void Init()
         {
             #region TableSheets
-
-            yield return null;
 
             var csvAssets = tableSheetContainer.tableCsvAssets;
             var csv = new Dictionary<string, string>();
@@ -39,6 +40,12 @@ namespace PlanetariumStory
             #region TestData
 
             Logic = new Logic();
+            
+            var canvas = FindObjectOfType<UI.GameCanvas>();
+            canvas.Set();
+            
+            Logic.Currency.Value = 0;
+            Logic.SpaceStep.Value = 1;
 
             var sb = new System.Text.StringBuilder();
             var characters = new List<Character>();
@@ -50,12 +57,24 @@ namespace PlanetariumStory
             }
 
             Logic.Characters.AddRange(characters);
+            Logic.OnChangeCharacters.OnNext(Logic.Characters);
 
             Debug.Log(sb);
             sb.Clear();
 
 
             #endregion
+        }
+
+        private IEnumerator CoUpdate()
+        {
+            yield return null;
+            while (true)
+            {
+                yield return new WaitForSeconds(15);
+                
+                
+            }
         }
     }
 }
