@@ -15,6 +15,8 @@ namespace PlanetariumStory
 
         public TableSheets TableSheets { get; private set; }
         public Logic Logic { get; private set; }
+        
+        public bool canClick = true;
 
         private void Start()
         {
@@ -39,30 +41,27 @@ namespace PlanetariumStory
 
             #endregion
 
-            #region TestData
-
             Logic = new Logic();
             
             var canvas = FindObjectOfType<UI.GameCanvas>();
             canvas.Init();
-            
-            #endregion
-            
+
             Logic.OnChangeCharacters.Subscribe(characterList =>
             {
                 var totalCountBuffSheet = TableSheets.TotalCountBuffSheet;
                 var currentTotalCount = characterList.Count(character => character.IsActivated);
             
                 var getCostClick = TableSheets.GameConfigSheet.GetCostClick;
+                var clickCostBonus = 1;
                 foreach (var row in totalCountBuffSheet.Values)
                 {
                     if (currentTotalCount >= row.TotalCount)
                     {
-                        getCostClick *= row.ClickCostBonus;
+                        clickCostBonus = row.ClickCostBonus;
                     }
                 }
 
-                Logic.GetCostClick.Value = getCostClick;
+                Logic.GetCostClick.Value = getCostClick * clickCostBonus;
                 Debug.Log($"GetCostClick: {getCostClick}");
 
                 var teamBuffSheet = TableSheets.TeamBuffSheet;
@@ -128,7 +127,7 @@ namespace PlanetariumStory
             {
                 yield return null;
 
-                if (UnityEngine.Input.GetMouseButtonDown(0))
+                if (UnityEngine.Input.GetMouseButtonDown(0) && canClick)
                 {
                     Logic.Currency.Value += Logic.GetCostClick.Value;
                 }

@@ -25,12 +25,14 @@ namespace PlanetariumStory.UI
             closeButton.OnClickAsObservable().Subscribe(_ =>
             {
                 gameObject.SetActive(false);
+                GameManager.Instance.canClick = true;
             }).AddTo(gameObject);
         }
         
         public void Show()
         {
             gameObject.SetActive(true);
+            GameManager.Instance.canClick = false;
             Set(GameManager.Instance.Logic, GameManager.Instance.TableSheets.ShopCharacterSheet);
         }
         
