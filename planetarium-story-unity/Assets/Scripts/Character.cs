@@ -10,4 +10,9 @@
             Row = row;
             IsActivated = isActivated;
         }
+        
+        public void Activate()
+        {
+            IsActivated = true;
+        }
     }

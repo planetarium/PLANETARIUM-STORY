@@ -29,7 +29,6 @@ namespace TableSheet
         public int PerTimeDialogue { get; private set; }
         public int PerTimeDialogueProbability { get; private set; }
 
-
         public void Update(List<Row> rowList)
         {
             foreach (var row in rowList)

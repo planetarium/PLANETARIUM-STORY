@@ -12,15 +12,16 @@ namespace PlanetariumStory.UI
         [SerializeField] private TeamBuffView teamBuffView;
         [SerializeField] private PlaceBuffView placeBuffView;
         [SerializeField] private TotalCountBuffView totalCountBuffView;
+        [SerializeField] private HiringPopup hiringPopup;
         
-        public void Set()
+        public void Init()
         {
             var logic = GameManager.Instance.Logic;
             var tableSheets = GameManager.Instance.TableSheets;
 
-            logic.Currency.Subscribe(currecy =>
+            logic.Currency.Subscribe(currency =>
             {
-                currencyText.text = $"{currecy}";
+                currencyText.text = currency.ToString("N0");
             }).AddTo(gameObject);
             logic.SpaceStep.Subscribe(step =>
             {
@@ -34,8 +35,10 @@ namespace PlanetariumStory.UI
             
             hiringButton.OnClickAsObservable().Subscribe(_ =>
             {
-                Debug.Log("asdf");
+                hiringPopup.Show();
             }).AddTo(gameObject);
+            
+            hiringPopup.Init();
         }
     }
 }

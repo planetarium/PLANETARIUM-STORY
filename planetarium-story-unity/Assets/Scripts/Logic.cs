@@ -20,5 +20,9 @@ namespace PlanetariumStory
                 teamType => teamType,
                 teamType => characters.Count(character => character.Row.Team == teamType));
         }
+
+        public readonly ReactiveProperty<long> GetCostClick = new(1);
+        public readonly ReactiveProperty<float> PerTime = new(1);
+        public readonly ReactiveProperty<long> GetCostPerTime = new(1);
     }
 }
