@@ -19,11 +19,11 @@ namespace TableSheet
         }
 
         public int PerTime { get; private set; }
-        public int GetCostTime { get; private set; }
-        public int GetCostClick { get; private set; }
+        public long GetCostTime { get; private set; }
+        public long GetCostClick { get; private set; }
         public int PerClickCount { get; private set; }
-        public int SpaceBonusMinimumCost { get; private set; }
-        public int SpaceBonusMaximumCost { get; private set; }
+        public long SpaceBonusMinimumCost { get; private set; }
+        public long SpaceBonusMaximumCost { get; private set; }
         public int SpaceBonusPerTime { get; private set; }
         public int SpaceBonusProbability { get; private set; }
         public int PerTimeDialogue { get; private set; }
@@ -40,19 +40,19 @@ namespace TableSheet
                         PerTime = int.Parse(row.Value);
                         break;
                     case "GetCostTime":
-                        GetCostTime = int.Parse(row.Value);
+                        GetCostTime = long.Parse(row.Value);
                         break;
                     case "GetCostClick":
-                        GetCostClick = int.Parse(row.Value);
+                        GetCostClick = long.Parse(row.Value);
                         break;
                     case "PerClickCount": 
                         PerClickCount = int.Parse(row.Value);
                         break;
                     case "SpaceBonusMinimumCost":
-                        SpaceBonusMinimumCost = int.Parse(row.Value);
+                        SpaceBonusMinimumCost = long.Parse(row.Value);
                         break;
                     case "SpaceBonusMaximumCost":
-                        SpaceBonusMaximumCost = int.Parse(row.Value);
+                        SpaceBonusMaximumCost = long.Parse(row.Value);
                         break;
                     case "SpaceBonusPerTime":
                         SpaceBonusPerTime = int.Parse(row.Value);

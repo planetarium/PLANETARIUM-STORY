@@ -43,5 +43,10 @@
         {
             return (TEnum)System.Enum.Parse(typeof(TEnum), value);
         }
+        
+        protected static long ParseLong(string value)
+        {
+            return long.Parse(value);
+        }
     }
 }
