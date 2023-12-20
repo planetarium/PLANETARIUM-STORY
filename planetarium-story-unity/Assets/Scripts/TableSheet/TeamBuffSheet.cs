@@ -6,12 +6,12 @@
         {
             public override TeamType Key => TeamType;
             public TeamType TeamType { get; private set; }
-            public float TimeCostBonus { get; private set; }
+            public long TimeCostBonus { get; private set; }
 
             public override void Set(string[] fields)
             {
                 TeamType = ParseEnum<TeamType>(fields[0]);
-                TimeCostBonus = ParseFloat(fields[1]);
+                TimeCostBonus = ParseLong(fields[1]);
             }
         }
     }

@@ -12,29 +12,17 @@ namespace PlanetariumStory
         public readonly ReactiveProperty<int> SpaceStep = new(1);
 
         public readonly List<Character> Characters = new();
-        public int TotalCount => Characters.Count;
+        public readonly Subject<List<Character>> OnChangeCharacters = new();
 
-        public Dictionary<TeamType, int> CountByTeam
+        public static Dictionary<TeamType, int> CountByTeam(IEnumerable<Character> characters)
         {
-            get
-            {
-                return Enum.GetValues(typeof(TeamType)).Cast<TeamType>().ToArray().ToDictionary(
-                    teamType => teamType,
-                    teamType => Characters.Count(character => character.Row.Team == teamType));
-            }
+            return Enum.GetValues(typeof(TeamType)).Cast<TeamType>().ToDictionary(
+                teamType => teamType,
+                teamType => characters.Count(character => character.Row.Team == teamType));
         }
 
-        public int TotalActivatedCount => Characters.Count(character => character.IsActivated);
-
-        public Dictionary<TeamType, int> ActivatedCountByTeam
-        {
-            get
-            {
-                var characters = Characters.Where(character => character.IsActivated).ToArray();
-                return Enum.GetValues(typeof(TeamType)).Cast<TeamType>().ToArray().ToDictionary(
-                    teamType => teamType,
-                    teamType => characters.Count(character => character.Row.Team == teamType));
-            }
-        }
+        public readonly ReactiveProperty<long> GetCostClick = new(1);
+        public readonly ReactiveProperty<float> PerTime = new(1);
+        public readonly ReactiveProperty<long> GetCostPerTime = new(1);
     }
 }
