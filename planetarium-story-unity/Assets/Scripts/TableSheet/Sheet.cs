@@ -1,49 +1,64 @@
-﻿using System.Collections.Generic;
-using System.Text.RegularExpressions;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace TableSheet
 {
-    public class Sheet<TKey, TValue> 
-        where TKey : notnull 
+    public abstract class Sheet<TKey, TValue> : Dictionary<TKey, TValue>, ISheet
         where TValue : SheetRow<TKey>, new()
+        where TKey : notnull
     {
-        private const string SplitRe = @",(?=(?:[^""]*""[^""]*"")*(?![^""]*""))";
-        private const string LineSplitRe = @"\r\n|\n\r|\n|\r";
-        private static readonly char[] TrimChars = { '\"' };
+        private readonly List<int> _invalidColumnIndexes = new List<int>();
 
-        public static List<TValue> Read(string csvData)
+        public void Set(string csv)
         {
-            var data = new List<TValue>();
-
-            var lines = Regex.Split(csvData, LineSplitRe);
-            if (lines.Length <= 1)
+            if (string.IsNullOrEmpty(csv))
             {
-                return data;
+                throw new ArgumentNullException(nameof(csv));
             }
 
-            // var header = Regex.Split(lines[0], SplitRe);
-            for (var i = 1; i < lines.Length; i++)
+            var lines = csv.Split(new[] { "\r\n", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+
+            var columnNames = lines[0].Trim().Split(',');
+            for (var i = 0; i < columnNames.Length; i++)
             {
-                var values = Regex.Split(lines[i], SplitRe);
-                if (values.Length == 0 || values[0] == "")
+                if (columnNames[i].StartsWith("_"))
+                {
+                    _invalidColumnIndexes.Add(i);
+                }
+            }
+
+            var linesWithoutColumnName = lines.Skip(1);
+            foreach (var line in linesWithoutColumnName)
+            {
+                if (string.IsNullOrEmpty(line) || line.StartsWith(",") || line.StartsWith("_"))
                 {
                     continue;
                 }
-
+                
+                var fields = line.Trim().Split(',')
+                    .Where((column, index) => !_invalidColumnIndexes.Contains(index))
+                    .ToArray();
                 var row = new TValue();
-                row.Set(values);
+                row.Set(fields);
 
-                data.Add(row);
+                // Todo : check row is valid
+
+                AddRow(row.Key, row);
             }
-
-            return data;
         }
-    }
-    
-    public abstract class SheetRow<T>
-    {
-        public abstract T Key { get; }
 
-        public abstract void Set(string[] fields);
+        public void Set<T>(Sheet<TKey, T> sheet, bool executePostSet = true) where T : TValue, new()
+        {
+            foreach (var sheetRow in sheet)
+            {
+                AddRow(sheetRow.Key, sheetRow.Value);
+            }
+        }
+
+        protected virtual void AddRow(TKey key, TValue value)
+        {
+            Add(key, value);
+        }
     }
 }

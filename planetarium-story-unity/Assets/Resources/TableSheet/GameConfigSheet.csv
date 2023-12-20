@@ -1,0 +1,11 @@
+Key,int
+PerTime,15
+GetCostTime,50
+GetCostClick,10
+PerClickCount,1
+SpaceBonusMinimumCost,100
+SpaceBonusMaximumCost,1000000000
+SpaceBonusPerTime,30
+SpaceBonusProbability,10
+PerTimeDialogue,3
+PerTimeDialogueProbability,40
