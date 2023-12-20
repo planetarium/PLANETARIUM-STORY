@@ -44,5 +44,7 @@ namespace TableSheet
         public ShopSpaceSheet ShopSpaceSheet { get; private set; }
         public TeamBuffSheet TeamBuffSheet { get; private set; }
         public TotalCountBuffSheet TotalCountBuffSheet { get; private set; }
+        
+        public CharacterDialogueSheet CharacterDialogueSheet { get; private set; }
     }
 }
