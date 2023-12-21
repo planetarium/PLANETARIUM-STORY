@@ -55,6 +55,13 @@ namespace PlanetariumStory
             {
                 animator.SetTrigger(Idle);
                 _dialogTooltip.Hide();
+                
+                var position = transform.position;
+                if (position.x is < -18f or > 24f || position.y is < -14 or > 16)
+                {
+                    transform.position = Vector3.zero;
+                }
+                
                 yield return new WaitForSeconds(Random.Range(1f, 5f));
 
                 if (!RandomUtility.Probability(40f))

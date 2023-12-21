@@ -53,7 +53,7 @@ namespace PlanetariumStory
         
         public void UpgradeSpace()
         {
-            var cost = GameManager.Instance.TableSheets.ShopSpaceSheet[SpaceStep.Value].Cost;
+            var cost = GameManager.Instance.TableSheets.ShopSpaceSheet[SpaceStep.Value + 1].Cost;
             if (Currency.Value < cost)
             {
                 return;

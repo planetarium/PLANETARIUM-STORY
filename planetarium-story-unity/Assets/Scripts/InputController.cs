@@ -11,7 +11,7 @@ namespace PlanetariumStory
         [SerializeField] private float dragSpeed = 200f;
         [SerializeField] private float scrollSpeed = 200f;
         [SerializeField] private float minOrthographicSize = 2f;
-        [SerializeField] private float maxOrthographicSize = 8f;
+        [SerializeField] private float maxOrthographicSize = 12f;
 
         public void Init()
         {
@@ -33,9 +33,16 @@ namespace PlanetariumStory
 
                 if (Input.GetMouseButton(0))
                 {
-                    var xDragMove = Input.GetAxis("Mouse X") * Time.deltaTime * dragSpeed;
-                    var yDragMove = Input.GetAxis("Mouse Y") * Time.deltaTime * dragSpeed;
+                    var modifier = Time.deltaTime * dragSpeed * virtualCamera.m_Lens.OrthographicSize;
+                    var xDragMove = Input.GetAxis("Mouse X") * modifier;
+                    var yDragMove = Input.GetAxis("Mouse Y") * modifier;
                     cameraFollowTransform.Translate(-xDragMove, -yDragMove, 0f);
+                    
+                    var position = cameraFollowTransform.transform.position;
+                    cameraFollowTransform.transform.position = new Vector3(
+                        Mathf.Clamp(position.x, -18f, 24f),
+                        Mathf.Clamp(position.y, -14f, 16f),
+                        position.z);
                 }
                 else
                 {
