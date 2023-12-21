@@ -402,8 +402,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -80, y: 4}
-  m_SizeDelta: {x: 100, y: 50}
+  m_AnchoredPosition: {x: -90, y: 4}
+  m_SizeDelta: {x: 120, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1532151428773623628
 CanvasRenderer:
@@ -433,7 +433,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b>Bonus\n\uD074\uB9AD \uD68D\uB4DD</b>"
+  m_text: "Bonus\n\uD074\uB9AD \uD68D\uB4DD"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 89db1517b59713a49bc77105162bcce3, type: 2}
   m_sharedMaterial: {fileID: 4607000018354522245, guid: 89db1517b59713a49bc77105162bcce3, type: 2}
@@ -1558,7 +1558,7 @@ MonoBehaviour:
   m_Padding:
     m_Left: 30
     m_Right: 30
-    m_Top: 20
+    m_Top: 24
     m_Bottom: 10
   m_ChildAlignment: 0
   m_Spacing: 0
@@ -2157,8 +2157,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 140, y: 4}
-  m_SizeDelta: {x: 200, y: 40}
+  m_AnchoredPosition: {x: 100, y: 4}
+  m_SizeDelta: {x: 130, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5767614098245174172
 CanvasRenderer:
@@ -2561,8 +2561,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 26
+  m_fontSizeBase: 26
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3274,8 +3274,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 26
+  m_fontSizeBase: 26
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4194,7 +4194,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4313067934486836667, guid: 2a283bf8f67edc544ac5e11962a1fb2a, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 450
+      value: 430
       objectReference: {fileID: 0}
     - target: {fileID: 4313067934486836667, guid: 2a283bf8f67edc544ac5e11962a1fb2a, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -4310,7 +4310,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7850604806621911990, guid: 2a283bf8f67edc544ac5e11962a1fb2a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 38
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 8124668357185132188, guid: 2a283bf8f67edc544ac5e11962a1fb2a, type: 3}
       propertyPath: m_Padding.m_Top
