@@ -537,6 +537,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 267552401589973721}
+  - component: {fileID: 970844606}
   m_Layer: 0
   m_Name: Map
   m_TagString: Untagged
@@ -572,6 +573,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &970844606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738923463565533989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d5bfd560e7f492782c0f91342cc3375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitContainer: {fileID: 1204873137395145175}
+  unitPrefabs:
+  - {fileID: 7895519140110918728, guid: 9a8d09491dc353b46afa2c15adede196, type: 3}
+  - {fileID: 8154768605671371182, guid: a2ddb94cf7e5d424b81f2ed428a1234e, type: 3}
+  - {fileID: 4220897398779699394, guid: 1ce7d0a250e5a62449b360164332d1ef, type: 3}
+  - {fileID: 5550176756420493704, guid: 8088f611dc8426245b638b972e0844f7, type: 3}
+  - {fileID: 2752444471719131069, guid: 9390c316710b8b44b80e438f4c8bb92e, type: 3}
+  - {fileID: 4484721390854493235, guid: d6c647acafae8fc4ea137ecdfc01fbb4, type: 3}
+  objectsOnPlaceSteps:
+  - PlaceStep: 1
+    Objects: []
+  - PlaceStep: 2
+    Objects: []
+  - PlaceStep: 3
+    Objects: []
 --- !u!1 &1899604933609006141
 GameObject:
   m_ObjectHideFlags: 0

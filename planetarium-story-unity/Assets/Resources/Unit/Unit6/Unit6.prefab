@@ -211,6 +211,7 @@ GameObject:
   - component: {fileID: 8775845238544710984}
   - component: {fileID: 5455721555915025751}
   - component: {fileID: 6676310161833155225}
+  - component: {fileID: 4484721390854493235}
   m_Layer: 0
   m_Name: Unit6
   m_TagString: Untagged
@@ -297,7 +298,7 @@ Animator:
   m_GameObject: {fileID: 6213946685187240072}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a401b9449535b7341b72e26b4d326590, type: 2}
+  m_Controller: {fileID: 22100000, guid: d59197af506011245bf5a873ca5715e8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -307,3 +308,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4484721390854493235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6213946685187240072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c205927ca8049d7858aa282c54d9a24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bodySpriteRenderer: {fileID: 5455721555915025751}
+  faceSpriteRenderer: {fileID: 2409130335707388671}
+  animator: {fileID: 6676310161833155225}

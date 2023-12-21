@@ -54,25 +54,7 @@ namespace PlanetariumStory.UI
             foreach (var character in orderedCharacters)
             {
                 var profileCell = Instantiate(profileCellPrefab, scrollViewContent);
-                profileCell.Set(character, cost, id =>
-                {
-                    // try hire
-                    var c = logic.Characters.FirstOrDefault(c => c.Row.Id == id);
-                    if (c == null)
-                    {
-                        return;
-                    }
-
-                    if (logic.Currency.Value < cost)
-                    {
-                        return;
-                    }
-                        
-                    logic.Currency.Value -= cost;
-                    c.Activate();
-                    logic.OnChangeCharacters.OnNext(logic.Characters);
-                    Debug.Log($"Hire {c.Row.Name}");
-                });
+                profileCell.Set(character, cost, logic.Hire);
             }
         }
     }

@@ -25,7 +25,12 @@ namespace PlanetariumStory
         {
             while (true)
             {
-                yield return null;    
+                yield return null;
+
+                if (!GameManager.Instance.canClick)
+                {
+                    continue;
+                }
 
                 if (Input.GetMouseButton(0))
                 {

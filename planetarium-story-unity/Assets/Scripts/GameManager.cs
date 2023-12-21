@@ -46,6 +46,9 @@ namespace PlanetariumStory
             
             var canvas = FindObjectOfType<UI.GameCanvas>();
             canvas.Init();
+            
+            var map = FindObjectOfType<Map>();
+            map.Init(Logic);
 
             Logic.OnChangeCharacters.Subscribe(characterList =>
             {
