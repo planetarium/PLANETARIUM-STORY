@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using PlanetariumStory.UI;
 using UniRx;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -45,7 +46,7 @@ namespace PlanetariumStory
             var row = GameManager.Instance.TableSheets.CharacterDialogueSheet[character.Row.Id];
             var unitPrefab = unitPrefabs[Random.Range(0, unitPrefabs.Length)];
             var unit = Instantiate(unitPrefab, unitContainer);
-            unit.Set(row);
+            unit.Set(row, WorldPositionUI.Instance.InstantiateDialogTooltip());
             unit.transform.position = new Vector3(Random.Range(-7f, 17f), Random.Range(-10f, 8f), 0);
         }
     }

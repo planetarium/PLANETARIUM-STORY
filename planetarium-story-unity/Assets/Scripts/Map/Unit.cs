@@ -1,5 +1,6 @@
 using System.Collections;
 using DG.Tweening;
+using PlanetariumStory.UI;
 using TableSheet;
 using UnityEngine;
 
@@ -17,15 +18,17 @@ namespace PlanetariumStory
         [SerializeField] private Animator animator;
         
         private CharacterDialogueSheet.Row _row;
+        private DialogTooltip _dialogTooltip;
         private static readonly int Walk = Animator.StringToHash("Walk");
         private static readonly int Hooray = Animator.StringToHash("Hooray");
         private static readonly int Thinking = Animator.StringToHash("Thinking");
         private static readonly int Dance = Animator.StringToHash("Dance");
         private static readonly int Idle = Animator.StringToHash("Idle");
 
-        public void Set(CharacterDialogueSheet.Row row)
+        public void Set(CharacterDialogueSheet.Row row, DialogTooltip dialogTooltip)
         {
             _row = row;
+            _dialogTooltip = dialogTooltip;
             faceSpriteRenderer.sprite = GetSprite(_row.Id);
             
             StartCoroutine(CoUpdate());
@@ -51,11 +54,12 @@ namespace PlanetariumStory
             while (true)
             {
                 animator.SetTrigger(Idle);
+                _dialogTooltip.Hide();
                 yield return new WaitForSeconds(Random.Range(1f, 5f));
 
                 if (!RandomUtility.Probability(40f))
                 {
-                    Debug.Log($"[{_row.Name}] : {dialogue[Random.Range(0, dialogue.Length)]}");
+                    _dialogTooltip.Show($"[{_row.Name}] : {dialogue[Random.Range(0, dialogue.Length)]}", this);
                 }
 
                 var trigger = animatorTrigger[Random.Range(0, animatorTrigger.Length)];
