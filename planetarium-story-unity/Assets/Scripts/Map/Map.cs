@@ -21,6 +21,9 @@ namespace PlanetariumStory
         
         [SerializeField] private ObjectsOnPlaceStep[] objectsOnPlaceSteps;
         
+        [SerializeField] private Vector2 minPosition;
+        [SerializeField] private Vector2 maxPosition;
+        
         public void Init(Logic logic)
         {
             foreach (var character in logic.Characters.Where(character => character.IsActivated))
@@ -47,7 +50,9 @@ namespace PlanetariumStory
             var unitPrefab = unitPrefabs[Random.Range(0, unitPrefabs.Length)];
             var unit = Instantiate(unitPrefab, unitContainer);
             unit.Set(row, WorldPositionUI.Instance.InstantiateDialogTooltip());
-            unit.transform.position = new Vector3(Random.Range(-7f, 17f), Random.Range(-10f, 8f), 0);
+            unit.transform.position = new Vector3(
+                Random.Range(minPosition.x, maxPosition.x),
+                Random.Range(minPosition.y, maxPosition.y), 0);
         }
     }
 }

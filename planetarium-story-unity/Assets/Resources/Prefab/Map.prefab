@@ -685,6 +685,8 @@ MonoBehaviour:
     Objects: []
   - PlaceStep: 3
     Objects: []
+  minPosition: {x: -8, y: -11}
+  maxPosition: {x: 18, y: 3}
 --- !u!1 &1899604933609006141
 GameObject:
   m_ObjectHideFlags: 0
@@ -2541,7 +2543,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1204873137395145175
 Transform:
   m_ObjectHideFlags: 0

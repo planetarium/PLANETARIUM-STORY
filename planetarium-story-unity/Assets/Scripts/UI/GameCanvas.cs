@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,6 +8,15 @@ namespace PlanetariumStory.UI
 {
     public class GameCanvas : MonoBehaviour
     {
+        [Serializable]
+        public class PlaceUpgradeView
+        {
+            public int placeStep;
+            public GameObject container;
+            public Button button;
+            public TextMeshProUGUI costText;
+        }
+        
         [SerializeField] private TextMeshProUGUI perTimeText;
         [SerializeField] private TextMeshProUGUI costPerTimeText;
         [SerializeField] private TextMeshProUGUI perClickText;
@@ -18,6 +28,8 @@ namespace PlanetariumStory.UI
         [SerializeField] private PlaceBuffView placeBuffView;
         [SerializeField] private TotalCountBuffView totalCountBuffView;
         [SerializeField] private HiringPopup hiringPopup;
+        
+        [SerializeField] private PlaceUpgradeView[] placeUpgradeViews;
         
         public void Init()
         {
@@ -59,8 +71,44 @@ namespace PlanetariumStory.UI
             {
                 hiringPopup.Show();
             }).AddTo(gameObject);
-            
             hiringPopup.Init();
+
+            foreach (var view in placeUpgradeViews)
+            {
+                var cost = tableSheets.ShopSpaceSheet[view.placeStep].Cost;
+
+                view.costText.text = GetCostString(cost);
+                view.button.onClick.AddListener(() => logic.UpgradeSpace());
+            }
+            
+            logic.SpaceStep.Subscribe(step =>
+            {
+                foreach (var view in placeUpgradeViews)
+                {
+                    view.container.SetActive(step < view.placeStep);
+                }
+            }).AddTo(gameObject);
+        }
+        
+        private static string GetCostString(long cost)
+        {
+            // 값에 따라 K, M, B으로 줄여 표기
+            if (cost < 1e3)
+            {
+                return $"{cost}";
+            }
+
+            if (cost < 1e6)
+            {
+                return $"{cost / 1e3}K";
+            }
+
+            if (cost < 1e9)
+            {
+                return $"{cost / 1e6}M";
+            }
+
+            return $"{cost / 1e9}B";
         }
     }
 }

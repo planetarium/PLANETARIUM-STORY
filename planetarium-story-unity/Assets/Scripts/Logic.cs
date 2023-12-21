@@ -50,5 +50,18 @@ namespace PlanetariumStory
             OnHire.OnNext(c);
             Debug.Log($"Hire {c.Row.Name}");
         }
+        
+        public void UpgradeSpace()
+        {
+            var cost = GameManager.Instance.TableSheets.ShopSpaceSheet[SpaceStep.Value].Cost;
+            if (Currency.Value < cost)
+            {
+                return;
+            }
+            
+            Currency.Value -= cost;
+            SpaceStep.Value++;
+            Debug.Log($"Upgrade Space {SpaceStep.Value}");
+        }
     }
 }
