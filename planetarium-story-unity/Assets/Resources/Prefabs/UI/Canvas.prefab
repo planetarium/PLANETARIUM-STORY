@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "15\uBA85/61\uBA85"
+  m_text: 15/61
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1929b82e827f34c4db3cd74114508d60, type: 2}
   m_sharedMaterial: {fileID: -1752972262747532568, guid: 1929b82e827f34c4db3cd74114508d60, type: 2}
@@ -75,8 +75,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280463613
-  m_fontColor: {r: 0.99215686, g: 0.6901961, b: 0.13333334, a: 1}
+    rgba: 4284961863
+  m_fontColor: {r: 0.2784314, g: 0.32941177, b: 0.40392157, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -93,14 +93,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 23.8
-  m_fontSizeBase: 36
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 24
   m_fontStyle: 1
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 4
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1258,13 +1258,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 23.8
+  m_fontSize: 24
   m_fontSizeBase: 24
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 24
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -2327,7 +2327,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4313067934486836667, guid: 2a283bf8f67edc544ac5e11962a1fb2a, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 410
+      value: 450
       objectReference: {fileID: 0}
     - target: {fileID: 4313067934486836667, guid: 2a283bf8f67edc544ac5e11962a1fb2a, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -2443,7 +2443,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7850604806621911990, guid: 2a283bf8f67edc544ac5e11962a1fb2a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 38
+      objectReference: {fileID: 0}
+    - target: {fileID: 8124668357185132188, guid: 2a283bf8f67edc544ac5e11962a1fb2a, type: 3}
+      propertyPath: m_Padding.m_Top
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8168595746003615272, guid: 2a283bf8f67edc544ac5e11962a1fb2a, type: 3}
       propertyPath: m_AnchorMax.y
