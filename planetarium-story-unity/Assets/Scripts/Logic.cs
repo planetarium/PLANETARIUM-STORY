@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TableSheet;
 using UniRx;
+using UnityEngine;
 
 namespace PlanetariumStory
 {
@@ -13,6 +14,7 @@ namespace PlanetariumStory
 
         public readonly List<Character> Characters = new();
         public readonly Subject<List<Character>> OnChangeCharacters = new();
+        public readonly Subject<Character> OnHire = new();
 
         public static Dictionary<TeamType, int> CountByTeam(IEnumerable<Character> characters)
         {
@@ -25,5 +27,28 @@ namespace PlanetariumStory
         public readonly ReactiveProperty<long> GetCostClick = new(1);
         public readonly ReactiveProperty<float> PerTime = new(1);
         public readonly ReactiveProperty<long> GetCostPerTime = new(1);
+
+        public void Hire(int id)
+        {
+            // try hire
+            var c = Characters.FirstOrDefault(c => c.Row.Id == id);
+            if (c == null)
+            {
+                return;
+            }
+
+            var activatedCount = Characters.Count(character => character.IsActivated);
+            var cost = GameManager.Instance.TableSheets.ShopCharacterSheet[activatedCount + 1].Cost;
+            if (Currency.Value < cost)
+            {
+                return;
+            }
+                        
+            Currency.Value -= cost;
+            c.Activate();
+            OnChangeCharacters.OnNext(Characters);
+            OnHire.OnNext(c);
+            Debug.Log($"Hire {c.Row.Name}");
+        }
     }
 }

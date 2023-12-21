@@ -23,6 +23,7 @@ namespace PlanetariumStory
             Init();
             StartCoroutine(CoGetCostPerClick());
             StartCoroutine(CoGetCostPerTime());
+            FindObjectOfType<InputController>().Init();
         }
 
         private void Init()
@@ -45,6 +46,9 @@ namespace PlanetariumStory
             
             var canvas = FindObjectOfType<UI.GameCanvas>();
             canvas.Init();
+            
+            var map = FindObjectOfType<Map>();
+            map.Init(Logic);
 
             Logic.OnChangeCharacters.Subscribe(characterList =>
             {
@@ -127,7 +131,7 @@ namespace PlanetariumStory
             {
                 yield return null;
 
-                if (UnityEngine.Input.GetMouseButtonDown(0) && canClick)
+                if (Input.GetMouseButtonDown(0) && canClick)
                 {
                     Logic.Currency.Value += Logic.GetCostClick.Value;
                 }
