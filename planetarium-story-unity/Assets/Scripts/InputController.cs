@@ -20,6 +20,8 @@ namespace PlanetariumStory
 
         private IEnumerator CoUpdate()
         {
+            yield return new WaitForSeconds(3f);
+
             while (true)
             {
                 yield return null;
