@@ -57,7 +57,7 @@ namespace PlanetariumStory
                 _dialogTooltip.Hide();
                 
                 var position = transform.position;
-                if (position.x is < -18f or > 24f || position.y is < -14 or > 16)
+                if (position.x is < -168f or > 22f || position.y is < -12 or > 14)
                 {
                     transform.position = Vector3.zero;
                 }

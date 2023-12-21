@@ -428,7 +428,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   virtualCamera: {fileID: 275278784}
   cameraFollowTransform: {fileID: 553547484}
-  dragSpeed: 50
+  dragSpeed: 10
   scrollSpeed: 200
   minOrthographicSize: 2
   maxOrthographicSize: 12

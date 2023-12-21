@@ -92,7 +92,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogText: {fileID: 2892010613051381326}
   rectTransform: {fileID: 370012512836378804}
-  yOffset: 720
+  yOffset: 800
 --- !u!1 &6523585421504800566
 GameObject:
   m_ObjectHideFlags: 0
